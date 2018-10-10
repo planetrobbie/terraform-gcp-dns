@@ -6,7 +6,6 @@
 provider google {
   region = "${var.gcp_region}"
   project = "${var.gcp_project}"
-  credentials = "/Users/sebbraun/in/gcp/sebastien-demo.json"
 }
 
 resource "google_dns_record_set" "vault_lb_fqdn" {
