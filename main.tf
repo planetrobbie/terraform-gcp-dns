@@ -8,14 +8,14 @@ provider google {
   project = "${var.gcp_project}"
 }
 
-resource "google_dns_record_set" "vault_lb_fqdn" {
-  name = "${var.vault_hostname}.${google_dns_managed_zone.dns_zone.dns_name}"
+resource "google_dns_record_set" "server_fqdn" {
+  name = "${var.server_hostname}.${google_dns_managed_zone.dns_zone.dns_name}"
   type = "A"
   ttl  = "${var.ttl}"
 
   managed_zone = "${google_dns_managed_zone.dns_zone.name}"
 
-  rrdatas = "${var.vault_rrdatas}"
+  rrdatas = "${var.server_rrdatas}"
 }
 
 resource "google_dns_managed_zone" "dns_zone" {
